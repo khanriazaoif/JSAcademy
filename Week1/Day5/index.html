@@ -46,7 +46,7 @@
 
     <div>
         <label for="show-password">
-            <input type="checkbox" name="show-password" id="show-password">
+            <input type="checkbox" name="show-password" id="show-password" class="click-me">
             Show password
         </label>
     </div>
@@ -85,6 +85,14 @@
 
 <script>
     // Your code goes here...
+window.addEventListener('click', function(event){
+   if(event.target.matches('.click-me')){
+       console.log('A button as clicked.');
+   } else {
+       console.log('Not a match');
+   }
+});
+
 
 </script>
 </body>
