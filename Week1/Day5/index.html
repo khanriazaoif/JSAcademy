@@ -68,12 +68,12 @@
 
     <div>
         <label for="new-password">New Password</label>
-        <input type="password" name="new-password" id="new-password">
+        <input type="password" name="new-password" id="new-password" data-password="password">
     </div>
 
     <div>
         <label for="show-passwords">
-            <input type="checkbox" name="show-passwords" id="show-passwords">
+            <input type="checkbox" name="show-passwords" id="show-passwords" class="click-me" data-password="password">
             Show passwords
         </label>
     </div>
@@ -84,15 +84,34 @@
 </form>
 
 <script>
-    // Your code goes here...
-window.addEventListener('click', function(event){
-   if(event.target.matches('.click-me')){
-       console.log('A button as clicked.');
-   } else {
-       console.log('Not a match');
-   }
-});
 
+    const checkboxUsername = document.querySelector('#show-password');
+    const checkboxPassword = document.querySelector('#show-passwords');
+
+    const passwordUsername = document.querySelector('#password');
+    const passwordPassword = Array.prototype.slice.call(document.querySelectorAll('[data-password="password"]'));
+
+window.addEventListener('click', function(event) {
+    if (event.target.matches('.click-me')) {
+        if (checkboxUsername.checked) {
+            console.log('yes');
+            passwordUsername.type = 'text';
+        } else {
+            console.log('no');
+            passwordUsername.type = 'password';
+        }
+        // password.forEach(function (password, index) {
+        //     if (password.checked) {
+        //         console.log('yes');
+        //         password.type = 'text';
+        //     } else {
+        //         console.log('no');
+        //         password.type = 'password';
+        //     }
+        //
+        // })
+    }
+});
 
 </script>
 </body>
