@@ -63,7 +63,7 @@
 <form>
     <div>
         <label for="current-password">Current Password</label>
-        <input type="password" name="current-password" id="current-password">
+        <input type="password" name="current-password" id="current-password" data-password="password">
     </div>
 
     <div>
@@ -73,7 +73,7 @@
 
     <div>
         <label for="show-passwords">
-            <input type="checkbox" name="show-passwords" id="show-passwords" class="click-me" data-password="password">
+            <input type="checkbox" name="show-passwords" id="show-passwords" class="click-me">
             Show passwords
         </label>
     </div>
@@ -90,6 +90,7 @@
 
     const passwordUsername = document.querySelector('#password');
     const passwordPassword = Array.prototype.slice.call(document.querySelectorAll('[data-password="password"]'));
+    console.log(passwordPassword);
 
 window.addEventListener('click', function(event) {
     if (event.target.matches('.click-me')) {
@@ -100,16 +101,16 @@ window.addEventListener('click', function(event) {
             console.log('no');
             passwordUsername.type = 'password';
         }
-        // password.forEach(function (password, index) {
-        //     if (password.checked) {
-        //         console.log('yes');
-        //         password.type = 'text';
-        //     } else {
-        //         console.log('no');
-        //         password.type = 'password';
-        //     }
-        //
-        // })
+        passwordPassword.forEach(function (password, index) {
+            if (checkboxPassword.checked) {
+                console.log('yes');
+                password.type = 'text';
+            } else {
+                console.log('no');
+                password.type = 'password';
+            }
+
+        })
     }
 });
 
